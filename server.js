@@ -25,7 +25,7 @@ connectDB();
 app.set('view engine', 'ejs');
 
 // Static folder
-// app.use(express.static('public'));
+app.use(express.static('public'));
 
 // Body parsing
 app.use(express.urlencoded({ extended: true }));
