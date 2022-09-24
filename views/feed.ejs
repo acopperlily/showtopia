@@ -1,0 +1,27 @@
+<%- include('partials/header') -%>
+
+<div id="main" class="wrapper style1">
+  <div class="container">
+    <header class="major">
+      <h2>Concerts</h2>
+    </header>
+    <div class="row gtr-150">
+      <div class="col-4 col-12-medium">
+        <section id="sidebar">
+          <section>
+            <% for (let i = 0; i < shows.length; i++) { %>
+              <h3><%= shows[i].artist %></h3>
+              <p>
+                <a href="/show/<%= shows[i]._id %>" class="image fit">
+                  <img src="<%= shows[i].image %>" alt="">
+                </a>
+              </p>
+            <% } %>
+          </section>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') -%>

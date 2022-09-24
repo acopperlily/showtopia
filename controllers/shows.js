@@ -11,6 +11,21 @@ module.exports = {
       console.log(err);
     }
   },
+  getFeed: async (req, res) => {
+    try {
+      const shows = await Show.find().sort({ createdAt: "desc" }).lean();
+      // const users = [];
+      // for (let show of shows) {
+      //   let user = await User.findById(show.user);
+      //   users.push(user.userName);
+      // }
+      // console.log(users);
+      
+      res.render('feed.ejs', { shows: shows });
+    } catch (err) {
+      console.log(err);
+    }
+  },
   createShow: async (req, res) => {
     try {
       // Upload image to Cloudinary
