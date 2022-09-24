@@ -1,0 +1,56 @@
+<%- include('partials/header') -%>
+
+<section id="five" class="wrapper style1 special fade">
+  <div class="container">
+    <header>
+      <h2>Sign in and sit down</h2>
+      <p>
+        Ante metus praesent faucibus ante integer id accumsan eleifend
+      </p>
+    </header>
+    <% if (locals.messages.errors) { %>
+      <% messages.errors.forEach(el => { %>
+        <div class="alert alert-danger"><%= el.msg %></div>
+      <% }) %>
+    <% } %>
+    <% if (locals.messages.info) { %>
+      <% messages.info.forEach(el => { %>
+        <div class="alert alert-info"><%= el.msg %></div>
+      <% }) %>
+    <% } %>
+
+    <form method="post" action="/login" class="cta">
+      <div class="row gtr-uniform gtr-50">
+        
+        <div class="col-12 col-12-xsmall">
+          <label for="exampleInputEmail1">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="exampleInputEmail1"
+            placeholder="Enter email address"
+            aria-describedby="emailHelp"
+          />
+          <!-- <div id="emailHelp" class="col-12 col-12-xsmall">
+            We'll never share your email with anyone else.
+          </div> -->
+        </div>
+        <div class="col-12 col-12-xsmall">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter password"
+          />
+        </div>
+        
+        <div class="col-12 col-12-xsmall">
+          <input type="submit" value="Submit" class="fit primary" />
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<%- include('partials/footer') -%>
