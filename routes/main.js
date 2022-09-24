@@ -3,7 +3,6 @@ const router = express.Router();
 const authController = require('../controllers/auth');
 const homeController = require('../controllers/home');
 const showsController = require('../controllers/shows');
-const auth = require('../middleware/auth');
 const { ensureAuth, ensureGuest } = require('../middleware/auth');
 
 // Main Routes
