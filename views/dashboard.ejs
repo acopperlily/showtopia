@@ -1,4 +1,56 @@
 <%- include('partials/header') -%>
-  <h1>dashboard</h1>
-  <a href="/logout">Log out</a>
+<div id="main" class="wrapper style1">
+  <div class="container">
+    <header class="major">
+      <h2>Welcome</h2>
+    </header>
+
+    <h2>Add a show</h2>
+    <form action="/show/createShow" enctype="multipart/form-data" method="POST">
+      <div>
+        <label for="artist">Artist</label>
+        <input type="text" name="artist" id="artist">
+      </div>
+
+      <div>
+        <label for="venue">Venue</label>
+        <input type="text" name="venue" id="venue">
+      </div>
+
+      <div>
+        <label for="imgUpload">Image</label>
+        <input type="file" name="file" id="imageUpload">
+      </div>
+
+      <button type="submit" value="Upload">Submit</button>
+    </form>
+
+    <div class="row gtr-150">
+      <div class="col-4 col-12-medium">
+        <section id="sidebar">
+          <section>
+            <h3>Magna Feugiat</h3>
+            <p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit..</p>
+            <footer>
+              <ul class="actions">
+                <li><a href="#" class="button">Learn More</a></li>
+              </ul>
+            </footer>
+          </section>
+          <hr />
+          <section>
+            <a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
+            <h3>Amet Lorem Tempus</h3>
+            <p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
+            <footer>
+              <ul class="actions">
+                <li><a href="#" class="button">Learn More</a></li>
+              </ul>
+            </footer>
+          </section>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
 <%- include('partials/footer') -%>

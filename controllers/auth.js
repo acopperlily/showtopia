@@ -54,7 +54,7 @@ exports.logout = (req, res) => {
     }
     console.log('User has been logged out.');
     res.redirect('/');
-  })
+  });
 };
 
 exports.getSignup = (req, res) => {
