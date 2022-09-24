@@ -4,9 +4,10 @@ const User = require('../models/User');
 
 module.exports = {
   getDashboard: async (req, res) => {
-    console.log('test');
     try {
-      res.render('dashboard.ejs');
+      //const shows = await Show.find({ user: req.user.id });
+      const shows = await Show.find({ '_id': { $in: req.user.showsAttended }});
+      res.render('dashboard.ejs', { user: req.user, shows: shows });
     } catch(err) {
       console.log(err);
     }
@@ -31,7 +32,7 @@ module.exports = {
       // Upload image to Cloudinary
       const result = await cloudinary.uploader.upload(req.file.path);
 
-      await Show.create({
+      const show = await Show.create({
         artist: req.body.artist,
         image: result.secure_url,
         cloudinaryId: result.public_id,
@@ -39,6 +40,14 @@ module.exports = {
         likes: 0,
         user: req.user.id,
       });
+
+      // Add show to user array
+      const query = { _id: req.user.id };
+      const updateShows = {
+        $push: { showsAttended: show.id }
+      };
+      await User.updateOne(query, updateShows);
+
       console.log('Show has been added!');
       res.redirect('/dashboard');
     } catch (err) {
