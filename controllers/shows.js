@@ -91,4 +91,18 @@ module.exports = {
       res.redirect('/dashboard');
     }
   },
+  updateAttendance: async (req, res) => {
+    try {
+      let show = await Show.find({ _id: req.params.id });
+      let user = await User.find({ _id: req.user.id });
+
+      console.log('show:', show);
+      console.log('user:', user);
+
+      // res.render('show.ejs', { show: show, user: req.user });
+      res.redirect(`/show/${req.params.id}`);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 };

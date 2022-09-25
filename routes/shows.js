@@ -10,6 +10,7 @@ router.get('/:id', ensureAuth, showsController.getShow);
 router.post('/createShow', upload.single('file'), showsController.createShow);
 
 //router.put('/likeShow/:id', showsController.likeShow);
+router.put('/updateAttendance/:id', showsController.updateAttendance);
 
 router.delete('/deleteShow/:id', showsController.deleteShow);
 

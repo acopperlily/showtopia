@@ -17,6 +17,14 @@
           <button class="button" type="submit">Delete</button>
         </form>
       <% } %>
+
+      <form action="/show/updateAttendance/<%= show.id %>?_method=PUT" method="POST">
+        <% if (user.showsAttended.includes(show.id)) { %>
+          <button type="submit">Attended</button>
+        <% } else { %>
+          <button type="submit">Did not attend</button>
+        <% } %>
+      </form>
       <p>
         Aliquam massa urna, imperdiet sit amet mi non, bibendum euismod est.
         Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo.
