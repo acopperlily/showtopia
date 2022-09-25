@@ -22,6 +22,7 @@ const ShowSchema = new mongoose.Schema({
     required: true
   },
   userLikes: [String],
+  attendedBy: [String],
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",

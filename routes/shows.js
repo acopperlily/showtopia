@@ -11,6 +11,6 @@ router.post('/createShow', upload.single('file'), showsController.createShow);
 
 //router.put('/likeShow/:id', showsController.likeShow);
 
-//router.delete('/deleteShow/:id', showsController.deleteShow);
+router.delete('/deleteShow/:id', showsController.deleteShow);
 
 module.exports = router;

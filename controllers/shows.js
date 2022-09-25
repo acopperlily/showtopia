@@ -21,7 +21,6 @@ module.exports = {
       //   users.push(user.userName);
       // }
       // console.log(users);
-      
       res.render('feed.ejs', { shows: shows });
     } catch (err) {
       console.log(err);
@@ -48,6 +47,7 @@ module.exports = {
         venue: req.body.venue,
         likes: 0,
         userLikes: [],
+        attendedBy: [req.user.id],
         createdBy: req.user.id,
       });
 
@@ -63,5 +63,32 @@ module.exports = {
     } catch (err) {
       console.log(err);
     }
-  }
+  },
+  deleteShow: async (req, res) => {
+    try {
+      // Find show by ID
+      let show = await Show.findById({ _id: req.params.id });
+
+      // Delete image from Cloudinary
+      await cloudinary.uploader.destroy(show.cloudinaryId);
+
+      // Delete show ID from each user
+      for (let userId of show.attendedBy) {
+        const query = { _id: userId };
+        const removeShow = {
+          $pull: {
+            showsAttended: show.id
+          }
+        }
+        await User.updateOne(query, removeShow);
+      }
+
+      // Delete show from DB
+      await Show.remove({ _id: req.params.id });
+      console.log('Deleted show');
+      res.redirect('/dashboard');
+    } catch (err) {
+      res.redirect('/dashboard');
+    }
+  },
 };

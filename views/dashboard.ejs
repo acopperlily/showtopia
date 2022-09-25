@@ -48,6 +48,11 @@
               <a href="/show/<%= shows[i]._id %> ">
               <img class="image fit" src="<%= shows[i].image %>" alt="" /></a>
               <p><%= shows[i].venue %></p>
+
+              <form action="/show/deleteShow/<%= shows[i].id %>?_method=DELETE" method="POST">
+              <button type="submit" class="button">Delete</button>
+              </form>
+
               <footer>
                 <ul class="actions">
                   <li><a href="#" class="button">Learn More</a></li>
