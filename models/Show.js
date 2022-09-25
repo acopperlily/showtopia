@@ -13,15 +13,16 @@ const ShowSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
+  tourName: String,
   venue: {
     type: String,
-    required: true,
   },
   likes: {
     type: Number,
     required: true
   },
-  user: {
+  userLikes: [String],
+  createdBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
   },

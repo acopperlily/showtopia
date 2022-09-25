@@ -5,7 +5,7 @@ const showsController = require('../controllers/shows');
 const { ensureAuth, ensureGuest } = require('../middleware/auth');
 
 // Show routes
-//router.get('/:id', ensureAuth, showsController.getShow);
+router.get('/:id', ensureAuth, showsController.getShow);
 
 router.post('/createShow', upload.single('file'), showsController.createShow);
 

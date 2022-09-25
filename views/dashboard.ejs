@@ -1,4 +1,4 @@
-<%- include('partials/header') -%>
+<%- include('partials/headerAuth') -%>
 <div id="main" class="wrapper style1">
   <div class="container">
     <header class="major">
@@ -13,6 +13,10 @@
           <input type="text" name="artist" id="artist">
         </div>
         <div>
+          <label for="tourName">Name of Tour</label>
+          <input type="text" name="tourName" id="tourName">
+        </div>
+        <div>
           <label for="venue">Venue</label>
           <input type="text" name="venue" id="venue">
         </div>
@@ -24,7 +28,6 @@
       </form>
     </div>
 
-    <a href="/feed">feeeed</a>
     <div class="row gtr-150">
       <div class="col-4 col-12-medium">
         <section id="sidebar">

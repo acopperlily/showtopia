@@ -27,6 +27,14 @@ module.exports = {
       console.log(err);
     }
   },
+  getShow: async (req, res) => {
+    try {
+      const show = await Show.findById(req.params.id);
+      res.render('show.ejs', { show: show, user: req.user });
+    } catch (err) {
+      console.log(err);
+    }
+  },
   createShow: async (req, res) => {
     try {
       // Upload image to Cloudinary
@@ -36,9 +44,11 @@ module.exports = {
         artist: req.body.artist,
         image: result.secure_url,
         cloudinaryId: result.public_id,
+        tourName: req.body.tourName,
         venue: req.body.venue,
         likes: 0,
-        user: req.user.id,
+        userLikes: [],
+        createdBy: req.user.id,
       });
 
       // Add show to user array
