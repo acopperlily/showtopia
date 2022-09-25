@@ -25,6 +25,11 @@
           <button type="submit">Did not attend</button>
         <% } %>
       </form>
+
+      <form action="/show/updateLikes/<%= show.id %>?_method=PUT" method="POST">
+      <p>Likes: <%= show.userLikes.length %></p>
+      <button type="submit">updoot</button>
+      </form>
       <p>
         Aliquam massa urna, imperdiet sit amet mi non, bibendum euismod est.
         Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo.

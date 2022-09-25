@@ -91,15 +91,57 @@ module.exports = {
       res.redirect('/dashboard');
     }
   },
+  updateLikes: async (req, res) => {
+    try {
+      // let show = await Show.findOneAndUpdate({ _id: req.params.id }, {
+      //   $set: {
+      //     userLikes: {
+      //       $cond: [{
+      //         userLikes: {$in: ["$userLikes", req.user.id],
+      //         $pull: { userLikes: req.user.id },
+      //         $push: { userLikes: req.user.id }
+      //         }
+      //       }]
+      //     }
+      //   }
+      // })
+      let show = await Show.findById({ _id: req.params.id });
+      if (show.userLikes.includes(req.user.id)) {
+        await Show.updateOne({ _id: req.params.id }, {
+          $pull: { userLikes: req.user.id }
+        });
+      } else {
+        await Show.updateOne({ _id: req.params.id }, {
+          $push: { userLikes: req.user.id }
+        });
+      }
+      res.redirect(`/show/${req.params.id}`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
   updateAttendance: async (req, res) => {
     try {
-      let show = await Show.find({ _id: req.params.id });
-      let user = await User.find({ _id: req.user.id });
+      let show = await Show.findById({ _id: req.params.id });
+      let user = await User.findById({ _id: req.user.id });
 
       console.log('show:', show);
       console.log('user:', user);
+      console.log(show.attendedBy.includes(user.id));
+      console.log(user.showsAttended.includes(show.id));
 
-      // res.render('show.ejs', { show: show, user: req.user });
+      console.log(req.params);
+      console.log(req.user);
+
+      if (show.attendedBy.includes(user.id)) {
+        await Show.updateOne({ _id: req.params.id }, { $pull: { attendedBy: user.id }});
+        await User.updateOne({ _id: req.user.id }, { $pull: { showsAttended: show.id }});
+      } else {
+        await Show.updateOne({ _id: req.params.id }, { $push: { attendedBy: user.id }});
+        await User.updateOne({ _id: req.user.id }, { $push: { showsAttended: show.id }});
+      }
+
+      console.log('Attendance has been updated!');
       res.redirect(`/show/${req.params.id}`);
     } catch (err) {
       console.log(err);
