@@ -45,7 +45,6 @@ module.exports = {
         cloudinaryId: result.public_id,
         tourName: req.body.tourName,
         venue: req.body.venue,
-        likes: 0,
         userLikes: [],
         attendedBy: [req.user.id],
         createdBy: req.user.id,

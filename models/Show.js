@@ -17,10 +17,6 @@ const ShowSchema = new mongoose.Schema({
   venue: {
     type: String,
   },
-  likes: {
-    type: Number,
-    required: true
-  },
   userLikes: [String],
   attendedBy: [String],
   createdBy: {

@@ -4113,3 +4113,22 @@ input, select, textarea {
   label {
     text-align: left;
   }
+
+	a {
+		border-bottom: none;
+	}
+
+	#show-info > div{
+		display: flex;
+		justify-content: space-between;
+	}
+
+	#edit-show {
+		display: flex;
+		justify-content: flex-end;
+		gap: 1em;
+	}
+
+	button > span {
+		padding-right: 0.5rem;
+	}
