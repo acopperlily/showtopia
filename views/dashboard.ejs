@@ -29,31 +29,18 @@
     </div>
 
     <div class="row gtr-150">
-      <div class="col-4 col-12-medium">
+      <div class="col-12-medium">
         <section id="sidebar">
-          <section>
-            <h3>Magna Feugiat</h3>
-            <p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit..</p>
-            <footer>
-              <ul class="actions">
-                <li><a href="#" class="button">Learn More</a></li>
-              </ul>
-            </footer>
-          </section>
+
           <hr />
 
-          <section>
+          <section class="shows">
             <% for (let i = 0; i < shows.length; i++) { %>
-              <h3><%= shows[i].artist %></h3>
-              <a href="/show/<%= shows[i]._id %> ">
-              <img class="image fit" src="<%= shows[i].image %>" alt="" /></a>
-              <p><%= shows[i].venue %></p>
-
-              <footer>
-                <ul class="actions">
-                  <li><a href="#" class="button">Learn More</a></li>
-                </ul>
-              </footer>
+              <div class="show">
+                <h3><%= shows[i].artist %></h3>
+                <a href="/show/<%= shows[i]._id %> ">
+                <img class="image fit" src="<%= shows[i].image %>" alt="" /></a>
+              </div>
             <% } %>
           </section>
 

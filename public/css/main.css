@@ -235,6 +235,7 @@ input, select, textarea {
 		text-align: right;
 	}
 
+
 /* Loader */
 
 	@-moz-keyframes spinner-show {
@@ -667,6 +668,12 @@ input, select, textarea {
 			.container {
 				width: 90%;
 				max-width: 100%;
+			}
+
+			.shows {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				column-gap: 3rem;
 			}
 
 		}
@@ -3659,6 +3666,12 @@ input, select, textarea {
 				font-size: 12pt;
 			}
 
+			.shows {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				column-gap: 3rem;
+			}
+
 		/* Spotlight */
 
 			.spotlight {
@@ -3795,6 +3808,10 @@ input, select, textarea {
 
 			header.major {
 				margin: 0 0 2em 0;
+			}
+
+			.shows {
+				display: block;
 			}
 
 		/* Goto Next */
@@ -4058,6 +4075,10 @@ input, select, textarea {
 
 			body, input, select, textarea {
 				font-size: 12pt;
+			}
+
+			.shows {
+				display: block;
 			}
 
 		/* Button */
