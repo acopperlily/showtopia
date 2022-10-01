@@ -4153,3 +4153,27 @@ input, select, textarea {
 	button > span {
 		padding-right: 0.5rem;
 	}
+
+	.btn-container {
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-start;
+		width: 100%;
+	}
+
+	input[type="file"] {
+		position: absolute;
+		z-index: -1;
+		top: 10px;
+		left: 8px;
+		font-size: 17px;
+	}
+
+	.btn-wrap {
+		position: relative;
+	}
+
+	.file-btn {
+		display: inline-block;
+		padding-top: 2rem;
+	}
