@@ -5,8 +5,10 @@
       <h1>Welcome, <%= user.userName %></h1>
     </header>
 
-    <div>
-      <h4>You've attended <%= shows.length %> shows</h4>
+    <div class="shows-attended">
+      <h4>You've attended <%= shows.length %>
+        show<%= shows.length == 1 ? "" : "s" %>
+      </h4>
       <a href="#add-show" class="button">Add show</a>
     </div>
 
@@ -21,7 +23,10 @@
           <section class="shows">
             <% for (let i = 0; i < shows.length; i++) { %>
               <div class="show">
-                <h3><%= shows[i].artist %></h3>
+                <div class="artist-date">
+                  <h3><%= shows[i].artist %></h3>
+                  <span><%= shows[i].formattedDate %></span>
+                </div>
                 <a href="/show/<%= shows[i]._id %> ">
                 <img class="image fit" src="<%= shows[i].image %>" alt="" /></a>
               </div>
@@ -50,6 +55,10 @@
         <div>
           <label for="venue">Venue</label>
           <input type="text" name="venue" id="venue">
+        </div>
+        <div>
+          <label for="date">Date</label>
+          <input type="date" name="date" id="date">
         </div>
         <div class="btn-wrap">
           <div class="file-btn">

@@ -8,13 +8,20 @@
     <div class="">
       <div class="shows">
           <% for (let i = 0; i < shows.length; i++) { %>
-            <div class="">
-              <h3><%= shows[i].artist %></h3>
+            <div class="show">
+              <div class="artist-date">
+                <h3><%= shows[i].artist %></h3>
+                <span><%= shows[i].formattedDate %></span>
+              </div>
               <p>
                 <a href="/show/<%= shows[i]._id %>" class="image fit">
                   <img src="<%= shows[i].image %>" alt="">
                 </a>
               </p>
+              <div class="created-by">
+                <p>Created by <%= shows[i].createdBy.userName %></p>
+                <p><%= shows[i].userLikes.length %> <a class="icon fas fa-heart"></a></p>
+              </div>
             </div>
           <% } %>
       </div>

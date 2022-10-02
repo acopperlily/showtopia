@@ -12,7 +12,7 @@
       <div id="show-info" class="col-12">
         <div id="tour-date">
           <h3><%= show.tourName || "Really Sweet Tour Name" %></h3>
-          <h3>23 August 2022</h3>
+          <h3><%= show.formattedDate %></h3>
         </div>
         <div id="location">
           <h4><%= show.venue || "Name of Venue" %></h4>
@@ -42,14 +42,23 @@
         </div>
       </div>
 
-      <h3>Setlist</h3>
-      <ol>
-        <li>Faucibus orci lobortis ac adipiscing integer.</li>
-        <li>Col accumsan arcu mi aliquet placerat.</li>
-        <li>Lobortis vestibulum ut magna tempor massa nascetur.</li>
-        <li>Blandit massa non blandit tempor interdum.</li>
-        <li>Lacinia mattis arcu nascetur lobortis.</li>
-      </ol>
+      <header class="major">
+        <h2>Setlist</h2>
+      </header>
+      <ul id="setlist">
+        <li>Killing In the Name</li>
+        <li>Crucify</li>
+        <li>Apres Moi</li>
+        <li>Bland</li>
+        <li>Butt Rock Blues</li>
+        <li>Vow</li>
+        <li>Closer</li>
+        <li>Bad Romance</li>
+        <li>Utopia</li>
+        <li>March of the Pigs</li>
+        <li>Never Gonna Give You Up</li>
+        <li>Gangsta's Paradise</li>
+      </ul>
 
       <div id="edit-show">
         <form action="/show/editShow/<%= show.id %>?_method=PUT" method="POST">

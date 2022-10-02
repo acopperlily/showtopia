@@ -1,4 +1,5 @@
 const cloudinary = require('../middleware/cloudinary');
+const moment = require('moment');
 const Show = require('../models/Show');
 const User = require('../models/User');
 
@@ -14,7 +15,7 @@ module.exports = {
   },
   getFeed: async (req, res) => {
     try {
-      const shows = await Show.find().sort({ createdAt: "desc" }).lean();
+      const shows = await Show.find().populate('createdBy').sort({ date: "desc" }).lean();
       // const users = [];
       // for (let show of shows) {
       //   let user = await User.findById(show.user);
@@ -29,6 +30,8 @@ module.exports = {
   getShow: async (req, res) => {
     try {
       const show = await Show.findById(req.params.id);
+      // const date = moment(show.date).format('D MMMM YYYY');
+      // console.log(date);
       res.render('show.ejs', { show: show, user: req.user });
     } catch (err) {
       console.log(err);
@@ -45,6 +48,8 @@ module.exports = {
         cloudinaryId: result.public_id,
         tourName: req.body.tourName,
         venue: req.body.venue,
+        date: req.body.date,
+        formattedDate: moment(req.body.date).format('D MMMM YYYY'),
         userLikes: [],
         attendedBy: [req.user.id],
         createdBy: req.user.id,
