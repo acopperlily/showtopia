@@ -145,6 +145,11 @@ input, select, textarea {
 			border: 0;
 		}
 
+	h1 {
+		font-size: 2.3em;
+		letter-spacing: -0.025em;
+	}
+
 	h2 {
 		font-size: 2em;
 		line-height: 1.5em;
@@ -2222,7 +2227,7 @@ input, select, textarea {
 		display: block;
 		font-size: 0.9em;
 		font-weight: 300;
-		margin: 0 0 1em 0;
+		margin: 0 0 0 0;
 	}
 
 	input[type="text"],
@@ -2247,6 +2252,7 @@ input, select, textarea {
 		padding: 0 1em;
 		text-decoration: none;
 		width: 100%;
+		margin-bottom: 1em;
 	}
 
 		input[type="text"]:invalid,
@@ -4171,9 +4177,9 @@ input, select, textarea {
 
 	.btn-wrap {
 		position: relative;
+		margin: 0 0 2em 0;
 	}
 
 	.file-btn {
 		display: inline-block;
-		padding-top: 2rem;
 	}

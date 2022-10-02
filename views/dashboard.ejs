@@ -2,39 +2,21 @@
 <div id="main" class="wrapper style1">
   <div class="container">
     <header class="major">
-      <h2>Welcome, <%= user.userName %></h2>
+      <h1>Welcome, <%= user.userName %></h1>
     </header>
 
     <div>
-      <h2>Add a show</h2>
-      <form action="/show/createShow" enctype="multipart/form-data" method="POST" class="col-4">
-        <div>
-          <label for="artist">Artist or Group</label>
-          <input type="text" name="artist" id="artist">
-        </div>
-        <div>
-          <label for="tourName">Name of Tour</label>
-          <input type="text" name="tourName" id="tourName">
-        </div>
-        <div>
-          <label for="venue">Venue</label>
-          <input type="text" name="venue" id="venue">
-        </div>
-        <div class="btn-wrap">
-          <div class="file-btn">
-            <label class="button" for="imgUpload">Upload Image</label>
-            <input type="file" name="file" id="imgUpload">
-          </div>
-        </div>
-        <button class="button primary" type="submit" value="Upload">Submit</button>
-      </form>
+      <h4>You've attended <%= shows.length %> shows</h4>
+      <a href="#add-show" class="button">Add show</a>
     </div>
+
+    <header class="major">
+      <h2>Your Shows</h2>
+    </header>
 
     <div class="row gtr-150">
       <div class="col-12-medium">
         <section id="sidebar">
-
-          <hr />
 
           <section class="shows">
             <% for (let i = 0; i < shows.length; i++) { %>
@@ -49,6 +31,37 @@
         </section>
       </div>
     </div>
+
+    <section id="add-show">
+
+      <header class="major">
+        <h2>Add a show</h2>
+      </header>
+
+      <form action="/show/createShow" enctype="multipart/form-data" method="POST" class="cta">
+        <div>
+          <label for="artist">Artist or Group</label>
+          <input type="text" name="artist" id="artist">
+        </div>
+        <div>
+          <label for="tourName">Name of Tour</label>
+          <input type="text" name="tourName" id="tourName">
+        </div>
+        <div>
+          <label for="venue">Venue</label>
+          <input type="text" name="venue" id="venue">
+        </div>
+        <div class="btn-wrap">
+          <div class="file-btn">
+            <label for="">Image</label>
+            <label class="button" for="imgUpload">Choose file</label>
+            <input type="file" name="file" id="imgUpload">
+          </div>
+        </div>
+        <button class="button primary fit" type="submit" value="Upload">Submit</button>
+      </form>
+    </section>
+
   </div>
 </div>
 <%- include('partials/footer') -%>
