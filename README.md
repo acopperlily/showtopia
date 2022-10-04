@@ -3,7 +3,7 @@ A collection of concerts, a travelogue for live shows. Users can upload shows an
 
 Until the app is officially deployed, please run ```npm start``` on port 2001.
 
-![alt text](https://github.com/acopperlily/digital-canvas/blob/main/preview.png?raw=true)
+![image](https://user-images.githubusercontent.com/52804777/193816716-d7854834-54d8-4432-b046-98f5670db1ad.png)
 
 ## How It's Made:
 
